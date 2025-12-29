@@ -6,7 +6,8 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes), provideClientHydration(withEventReplay())
-  ]
+    provideBrowserGlobalErrorListeners(), //browser global error handlers
+    provideRouter(routes), // the client router with app routes
+    provideClientHydration(withEventReplay()), //client hydration to replay events after SSR
+  ],
 };

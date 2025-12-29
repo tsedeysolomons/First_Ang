@@ -1,3 +1,5 @@
+//Purpose: It's a unit test file for the App component in an Angular application.
+/*  Run: npm test or ng test (your project uses vitest via Angular tooling).*/
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
