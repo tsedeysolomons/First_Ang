@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+const angularApp = new AngularNodeAppEngine(); // angularApp.handle(req) — renders the app for the incoming request.
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -32,18 +32,17 @@ app.use(
     maxAge: '1y',
     index: false,
     redirect: false,
-  }),
+  })
 );
 
 /**
  * Handle all other requests by rendering the Angular application.
  */
 app.use((req, res, next) => {
+  //writeResponseToNodeResponse(response, res) — converts Angular’s response into the Express res.
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
     .catch(next);
 });
 
@@ -65,4 +64,4 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
-export const reqHandler = createNodeRequestHandler(app);
+export const reqHandler = createNodeRequestHandler(app); //Exports reqHandler for use by platforms (dev server, Firebase functions, etc.).
