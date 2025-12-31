@@ -152,3 +152,4 @@ C:\Users\tsede\OneDrive\Desktop\Angular_P\First_Ang\Backend\obj\Debug\net9.0\ref
 C:\Users\tsede\OneDrive\Desktop\Angular_P\First_Ang\Backend\obj\Debug\net9.0\Backend.pdb
 C:\Users\tsede\OneDrive\Desktop\Angular_P\First_Ang\Backend\obj\Debug\net9.0\Backend.genruntimeconfig.cache
 C:\Users\tsede\OneDrive\Desktop\Angular_P\First_Ang\Backend\obj\Debug\net9.0\ref\Backend.dll
+C:\Users\tsede\OneDrive\Desktop\Angular_P\First_Ang\Backend\bin\Debug\net9.0\BCrypt.Net-Next.dll

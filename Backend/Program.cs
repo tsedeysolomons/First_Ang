@@ -17,7 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp",
-        policy => policy.WithOrigins("https://localhost:4200")
+        policy => policy.WithOrigins("https://localhost:4200/User")
                         .AllowAnyHeader()
                         .AllowAnyMethod());
 });
@@ -31,6 +31,7 @@ app.MapControllers();
 
 app.MapGet("/", () => "DAF-TECH API is running!");
 app.MapGet("/health", () => "Healthy");
+app.MapGet("/api/TestConnection", () => "Fine");
 
 // Create database
 using (var scope = app.Services.CreateScope())

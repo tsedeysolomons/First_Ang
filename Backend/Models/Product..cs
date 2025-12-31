@@ -2,12 +2,14 @@
 // This is like creating a table in SQL
 
 // Models/User.cs
-// This creates the "users" table in your new_registers database
+// This creates the "Users" table in your new_registers database
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Backend.Models
 {
+    [Table("Users")]
     public class User
     {
         [Key]  // Primary key
@@ -23,7 +25,7 @@ namespace Backend.Models
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(255)]
+        [MaxLength(100)] // Increased to hold the BCrypt hash
         public string Password { get; set; } = string.Empty;
 
         [MaxLength(20)]
