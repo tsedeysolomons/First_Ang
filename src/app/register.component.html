@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>User Registration</h2>
+
+  <!-- Display Backend Errors -->
+  <div *ngIf="errorMessage" style="color: red; text-align: center; margin-bottom: 10px; font-weight: bold;">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Fixed: [formGroup] directive binding -->
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Added label for accessibility -->
+    <label for="fullName">Full Name</label>
+    <input 
+      type="text" 
+      id="fullName" 
+      placeholder="Full Name" 
+      formControlName="fullName" 
+    />
+
+    <label for="email">Email Address</label>
+    <input 
+      type="email" 
+      id="email" 
+      placeholder="Email Address" 
+      formControlName="email" 
+    />
+
+    <label for="password">Password</label>
+    <input 
+      type="password" 
+      id="password" 
+      placeholder="Password" 
+      formControlName="password" 
+    />
+    <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" style="color:red">
+      Password must be at least 6 characters
+    </small>
+
+    <label for="phone">Phone Number</label>
+    <input 
+      type="tel" 
+      id="phone" 
+      placeholder="Phone Number" 
+      formControlName="phone" 
+    />
+
+    <label for="department">Department</label>
+    <select id="department" formControlName="department">
+      <option value="">Select Department</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Information Technology">Information Technology</option>
+      <option value="Software Engineering">Software Engineering</option>
+      <option value="Electrical Engineering">Electrical Engineering</option>
+    </select>
+
+    <!-- Fixed: removed title attribute from form, added to button if needed -->
+    <button 
+      type="submit" 
+      [disabled]="registerForm.invalid" 
+      [class.disabled]="registerForm.invalid"
+      title="Submit registration form"
+    >
+      Register
+    </button>
+  </form>
+</div>
