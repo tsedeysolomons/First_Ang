@@ -1,8 +1,6 @@
 // Data/AppDbContext.cs
 // This is your app's connection to the database
 using Microsoft.EntityFrameworkCore;
-//using First_Ang.Backend.Models;  // Import Product model
-// Data/AppDbContext.cs
 using Backend.Models;
 
 namespace Backend.Data
